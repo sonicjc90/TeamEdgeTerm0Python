@@ -31,11 +31,11 @@ import random
 
   # --------------------------------------------
 
+print("Welcome to CaL cue la tor, the greatest answering program of all time!:")
+print("AsK mE aNy QuEsTiOn AnD I wIiL aNsWeR.")
+print("However, My ReSpOnSeS aRe RaNdOm So BeWaRe. ")
 
-
-
-
-
+question = input("Please ask any question")
 
 
 
@@ -76,12 +76,48 @@ import random
 
   # -------------------------------------------- 
 
+num = random.randrange(0, 20)
 
-
-
-
-
-
+if num == 0:  
+	print('It is certain.')
+elif num == 1:  
+	print('It is decidedly so.')
+elif num == 2:  
+	print('Without a doubt.')
+elif num == 3:  
+	print('Yes - definitely.')
+elif num == 4:  
+	print('You may rely on it.')
+elif num == 5:  
+	print('As I see it, yes.')
+elif num == 6:  
+	print('Most likely.')
+elif num == 7:  
+	print('Outlook good.')
+elif num == 8:  
+	print('Yes.')
+elif num == 9:  
+	print('Signs point to yes.')
+elif num == 10:  
+	print('Reply hazy, try again.')
+elif num == 11:  
+	print('Ask again later.')
+elif num == 12:  
+	print('Better not tell you now.')
+elif num == 13:  
+	print('Cannot predict now.')
+elif num == 14:  
+	print('Concentrate and ask again.')
+elif num == 15:  
+	print('Dont count on it.')
+elif num == 16:  
+	print('My reply is no.')
+elif num == 17:  
+	print('My sources say no.')
+elif num == 18:  
+	print('Outlook not so good.')
+elif num == 19:  
+	print('Very doubtful.')
 
 
 
