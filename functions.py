@@ -20,29 +20,67 @@ print("\n------------------- Challenge 1 -------------------\n")
 # **** Challenge 1: Problem 1 ****
 # Write a function called print_message() that prints any message you want.
 
+def print_message():
+	msg1 = 'Hello!'
+	print(msg1)
+
+print_message()
 
 # **** Challenge 1: Problem 2 ****
 # Write a function called print_five_messages() that calls print_message() five times.
 
+def print_five_message():
+	print_message()
+	print_message()
+	print_message()
+	print_message()
+	print_message()
+
+print_five_message()
 
 # **** Challenge 1: Problem 3 ****
 # Write a function called get_user_input() that asks the user if they'd like to print your message
 # once or five times. Then call one of the two functions above based on what the user decides.
 
+def get_user_input():
+	user = int(input('Would you like to print this message once or five times? ----> ' ))
+	if user == 1:
+		print_message()
+	elif user == 5:
+		print_five_message()
+		
+get_user_input()
+
 
 # **** Challenge 1: Problem 4 ****
 # Write a function called print_greeting() that prints a greeting message to the user.
 
+def print_greeting():
+	greet = 'Hello good friend.'
+	print(greet)
+
+print_greeting()
 
 # **** Challenge 1: Problem 5 ****
 # Write a function called print_closing() that prints a goodbye message to the user.
 
+def print_closing():
+	bye = "GOODBYE FEEBLE HUMAN!"
+	print(bye)
+
+print_closing()
 
 # **** Challenge 1: Problem 6 ****
 # Write a function called run() that greets the user, asks them for input, and sends a goodbye message.
 # Remember! Use the functions that you've already made. Don't hardcode anything!
 
+def run():
+	me = input('Hello good sir, would you like to continue our conversation? ----> ' )
+	if me == 'yes':
+		get_user_input()
+	print_closing()
 
+run()
 
 # -------------------------------------------- 
 
@@ -65,7 +103,13 @@ print("\n------------------- Challenge 2 -------------------\n")
 
 # -------------------------------------------- 
 
+def sum_double(a,b):
+	return a+b
+	if a == b:
+		return (a+b)*2
 
+sd = sum_double(9,10)
+print(sd)
 
 
 
@@ -86,8 +130,13 @@ print("\n------------------- Challenge 2 -------------------\n")
 
 # -------------------------------------------- 
 
-
-
+def makes_10(a,b):
+	if a==10 or b==10 or a+b==10:
+		return True
+	else:
+			return False
+sans = makes_10(6,4)
+print(sans)
 
 
 
@@ -110,8 +159,34 @@ print("\n------------------- Challenge 2 -------------------\n")
 		# alarm_clock(0, False) → "10:00"
 
 # -------------------------------------------- 
+def alarm_clock(a,b):
+	
+	if (a == 1 or a == 2 or a == 3 or a == 4 or a == 5) and b == False:
+		print('7:00')
+	elif (a == 0 or a == 6) and b == False:
+		print('10:00')
+	elif (a == 0 or a == 6) and b == True:
+		print('Alarm clock is off')
+	# if b == True:
+	# 	print('off')
+	# elif b == False:
+	# 	if a == '0':
+	# 			print('10:00')
+	# 		elif a == '1':
+	# 			print('7:00')
+	# 		elif a == '2':
+	# 			print('7:00')
+	# 		elif a == '3':
+	# 			print('7:00')
+	# 		elif a == '4':
+	# 			print('7:00')
+	# 		elif a == '5':
+	# 			print('7:00')
+	# 		elif a == '6':
+	# 			print('10:00')
 
-
+a = int(input('what day?'))
+alarm_clock(a,True)
 
 
 
@@ -136,10 +211,22 @@ print("\n------------------- Challenge 2 -------------------\n")
 
 # -------------------------------------------- 
 
+import random
 
+def ticket(x,y,z):
 
+	speed = random.randrange(1, 101)
 
+	if speed <= 60:
+		return x
+	elif 61 <= speed :
+		if speed >= 80:
+			return y
+	else:
+		return z
 
+tc = ticket('No ticket','Small Ticket','Big Ticket!')
+print(tc)
 
 
 
