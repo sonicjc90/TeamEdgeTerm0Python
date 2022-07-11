@@ -12,7 +12,7 @@ while True:
     print(f"You played: {userInput} and the computer played: {computerSelection}")
     if userInput == computerSelection:
         print("It's a tie!")
-    elif((userInput == "rock" and computerSelection == "paper") or (userInput == "paper" and computerSelection == "scissors") or (userInput == "rock" and computerSelection == "scissors")):
+    elif((userInput == "rock" and computerSelection == "paper") or (userInput == "paper" and computerSelection == "scissors") or (userInput == "rock" and computerSelection == "paper")):
         print("You Lose!")
     else:
         print("You Win!")
