@@ -42,7 +42,24 @@
 
 # --------------------------------------------
 
-
+mac = 10.00
+rs = 7.00
+dc = 13.00
+rw = 3.45
+st = 3.00 
+cdc = 2.00
+nic = 3.00
+db = 3.50
+choco = 4.00
+a = 0
+b = 0
+c = 0
+d = 0
+tlt = 0.00
+tlt_tax = 0.00
+tlt_tip = 0.00
+ftlt = 0.00
+final = 0.00
 
 # -------------------------------------------- 
 
@@ -54,8 +71,46 @@
 
 # --------------------------------------------
 
+def menu():
+	print('\nArsenal for Cooks Menu')
+	print('-----------------------------\n')
 
+	print('Weapon - Food:\n')
 
+	print(f'1. Macaroni & Cheese - $10.00')
+	print('choice of bacon or extra cheese \n')
+
+	print(f'2. Rendevous Salad - $7.00')
+	print('choice of onions and/or dressing \n')
+
+	print(f'3. Dungeon Crab - $13.00')
+	print('choice of any sauce \n')
+
+	print('-----------------------------\n')
+
+	print('Ammunition - Drink:\n')
+
+	print(f'4. Red Wine - $3.45 \n')
+
+	print(f'5. Shirley Temple - $3.00 \n')
+
+	print(f'6. Cold Drink of Choice - $2.00 \n')
+
+	print('-----------------------------\n')
+
+	print('Kill - Dessert:\n')
+
+	print(f'7. Neopoletan Ice Cream - $3.00  ')
+	print('with syrup of choice\n')
+
+	print(f'8. Darkness Brownie - $3.50  \n')
+
+	print(f'9. Chocolate Cake - $4.00  ') 
+	print('- Devils Cake  \n')
+
+	print('-----------------------------\n')
+
+menu()
 
 
 
@@ -71,6 +126,42 @@
 # Remember! Functions are meant to be reusable, so write a function that will work when called repeatedly!
 
 # --------------------------------------------
+
+def weapon():
+	global a
+	a = int(input('Hello comrade. Please enter your weapon of choice from 1 - 3 ------> \n'))
+	if a == 1:
+		print('1. Macaroni & Cheese - $10.00 \n')
+	elif a == 2:
+		print('2. Rendevous Salad - $7.00 \n')
+	elif a == 3:
+		print('3. Dungeon Crab - $13.00 \n')
+
+
+def ammunition():
+	global b
+	b = int(input('Now, enter your ammunition of choice from 4 - 6 ------> \n'))
+	if b == 4:
+		print(f'4. Red Wine - $3.45 \n')
+	elif b == 5:
+		print(f'5. Shirley Temple - $3.00 \n')
+	elif b == 6:
+		print(f'6. Cold Drink of Choice - $2.00 \n')
+
+
+def kill(): 
+	global c
+	c = int(input('Finally, execute the final kill of choice from 7 - 9 ------> \n'))
+	if c == 7:
+		print(f'7. Neopoletan Ice Cream - $3.00  \n')
+	elif c == 8:
+		print(f'8. Darkness Brownie - $3.50 \n')
+	elif c == 9:
+		print(f'9. Chocolate Cake - $4.00  \n') 
+
+weapon()
+ammunition()
+kill()
 
 
 
@@ -97,11 +188,33 @@
 
 # -------------------------------------------- 
 
+def calculations():
+	global tlt
+	global a
+	global b
+	global c
+	if a == 1:
+		tlt = tlt + mac
+	elif a == 2:
+		tlt = tlt + rs
+	elif a == 3:
+		tlt = tlt + dc
 
+	if b == 4:
+		tlt = tlt + rw
+	elif b == 5:
+		tlt = tlt + st
+	elif b == 6:
+		tlt = tlt + cdc
 
-
-
-
+	if c == 7:
+		tlt = tlt + nic
+	elif c == 8:
+		tlt = tlt + db
+	elif c == 9:
+		tlt = tlt + choco
+	print(tlt)
+calculations()
 
 
 
@@ -125,8 +238,73 @@
 # -------------------------------------------- 
 
 
+def receipt():
+	global tlt_tax
+	global tlt
+	tlt_tax = tlt * 0.08875
+
+	print('Your subtotal is: \n')
+	print(format(f'{tlt} \n'))
+receipt()
+
+def tip():
+	global tlt_tip
+	global tlt
+	d = (input('Finally would you like to enter a tip of either (10%, 15%, or 20%)? \n'))
+	if d == '10%':
+		tlt_tip = tlt * 0.10
+	elif d == '15%':
+		tlt_tip = tlt * 0.15
+	elif d == '20%':
+		tlt_tip = tlt * 0.20
+
+	print(format(round(tlt_tip, 2)))
+tip()
+
+def choice():
+	global a
+	global b
+	global c
+
+	if a == 1:
+		print('1. Macaroni & Cheese - $10.00 \n')
+	elif a == 2:
+		print('2. Rendevous Salad - $7.00 \n')
+	elif a == 3:
+		print('3. Dungeon Crab - $13.00 \n')
+
+	if b == 4:
+		print(f'4. Red Wine - $3.45 \n')
+	elif b == 5:
+		print(f'5. Shirley Temple - $3.00 \n')
+	elif b == 6:
+		print(f'6. Cold Drink of Choice - $2.00 \n')
+
+	if c == 7:
+		print(f'7. Neopoletan Ice Cream - $3.00  \n')
+	elif c == 8:
+		print(f'8. Darkness Brownie - $3.50 \n')
+	elif c == 9:
+		print(f'9. Chocolate Cake - $4.00  \n') 
 
 
+print('Here is your receipt: \n')
+choice()
+print(format(f'Subtotal: {round(tlt, 2)}'))
+print(format(f'Tax: {round(tlt_tax, 2)}'))
+print(format(f'Tip: {round(tlt_tip, 2)} '))
+
+
+
+def last():
+	global final
+	global tlt_tip
+	global tlt_tax
+	global tlt
+	final = tlt + tlt_tax + tlt_tip
+	print(f'Total: ${round(final, 2)}')
+	
+last()
 # -------------------------------------------- 
 
 # Part 6: Food Order Bot
