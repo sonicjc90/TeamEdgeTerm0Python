@@ -50,7 +50,7 @@ st = 3.00
 cdc = 2.00
 nic = 3.00
 db = 3.50
-choco = 4.03
+choco = 4.00
 a = 0
 b = 0
 c = 0
@@ -59,7 +59,7 @@ tlt = 0.00
 tlt_tax = 0.00
 tlt_tip = 0.00
 ftlt = 0.00
-
+final = 0.00
 
 # -------------------------------------------- 
 
@@ -129,35 +129,35 @@ menu()
 
 def weapon():
 	global a
-	a = int(input('Hello comrade. Please enter your weapon of choice from 1 - 3 ------> '))
+	a = int(input('Hello comrade. Please enter your weapon of choice from 1 - 3 ------> \n'))
 	if a == 1:
-		print('1. Macaroni & Cheese - $10.00')
+		print('1. Macaroni & Cheese - $10.00 \n')
 	elif a == 2:
-		print('2. Rendevous Salad - $7.00')
+		print('2. Rendevous Salad - $7.00 \n')
 	elif a == 3:
-		print('3. Dungeon Crab - $13.00')
+		print('3. Dungeon Crab - $13.00 \n')
 
 
 def ammunition():
 	global b
-	b = int(input('Now, enter your ammunition of choice from 4 - 6 ------> '))
+	b = int(input('Now, enter your ammunition of choice from 4 - 6 ------> \n'))
 	if b == 4:
-		print(f'4. Red Wine - $3.45 ')
+		print(f'4. Red Wine - $3.45 \n')
 	elif b == 5:
-		print(f'5. Shirley Temple - $3.00 ')
+		print(f'5. Shirley Temple - $3.00 \n')
 	elif b == 6:
-		print(f'6. Cold Drink of Choice - $2.00 ')
+		print(f'6. Cold Drink of Choice - $2.00 \n')
 
 
 def kill(): 
 	global c
-	c = int(input('Finally, execute the final kill of choice from 7 - 9 ------> '))
+	c = int(input('Finally, execute the final kill of choice from 7 - 9 ------> \n'))
 	if c == 7:
-		print(f'7. Neopoletan Ice Cream - $3.00  ')
+		print(f'7. Neopoletan Ice Cream - $3.00  \n')
 	elif c == 8:
-		print(f'8. Darkness Brownie - $3.50 ')
+		print(f'8. Darkness Brownie - $3.50 \n')
 	elif c == 9:
-		print(f'9. Chocolate Cake - $4.00  ') 
+		print(f'9. Chocolate Cake - $4.00  \n') 
 
 weapon()
 ammunition()
@@ -243,9 +243,8 @@ def receipt():
 	global tlt
 	tlt_tax = tlt * 0.08875
 
-	print('Your subtotal is:')
-	print(tlt)
-	print(tlt_tax)
+	print('Your subtotal is: \n')
+	print(format(f'{tlt} \n'))
 receipt()
 
 def tip():
@@ -259,16 +258,53 @@ def tip():
 	elif d == '20%':
 		tlt_tip = tlt * 0.20
 
-	print(tlt_tip)
+	print(format(round(tlt_tip, 2)))
 tip()
 
+def choice():
+	global a
+	global b
+	global c
+
+	if a == 1:
+		print('1. Macaroni & Cheese - $10.00 \n')
+	elif a == 2:
+		print('2. Rendevous Salad - $7.00 \n')
+	elif a == 3:
+		print('3. Dungeon Crab - $13.00 \n')
+
+	if b == 4:
+		print(f'4. Red Wine - $3.45 \n')
+	elif b == 5:
+		print(f'5. Shirley Temple - $3.00 \n')
+	elif b == 6:
+		print(f'6. Cold Drink of Choice - $2.00 \n')
+
+	if c == 7:
+		print(f'7. Neopoletan Ice Cream - $3.00  \n')
+	elif c == 8:
+		print(f'8. Darkness Brownie - $3.50 \n')
+	elif c == 9:
+		print(f'9. Chocolate Cake - $4.00  \n') 
+
+
 print('Here is your receipt: \n')
-print(a)
-print(f'Subtotal: {tlt}')
-print(f'Tax: {tlt_tax}')
-print(f'Tip: {tlt_tip} ')
+choice()
+print(format(f'Subtotal: {round(tlt, 2)}'))
+print(format(f'Tax: {round(tlt_tax, 2)}'))
+print(format(f'Tip: {round(tlt_tip, 2)} '))
 
 
+
+def last():
+	global final
+	global tlt_tip
+	global tlt_tax
+	global tlt
+	final = tlt + tlt_tax + tlt_tip
+	print(f'Total: ${round(final, 2)}')
+	
+last()
 # -------------------------------------------- 
 
 # Part 6: Food Order Bot
