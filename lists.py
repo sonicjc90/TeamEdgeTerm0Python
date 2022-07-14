@@ -145,6 +145,10 @@ print("unwanted city: " + str(unwanted_city))
 
 #-->TODO: remove your last song using .pop() and print the removed element as above
 
+rev = songs.pop()
+print("Song removed: " + str(rev))
+print("Current Songs" +str(songs))
+
 #Note: there are more methods to remove and modify list elements. We will cover those later
 
 print("------------------- CHALLENGE 6 -------------------")
@@ -157,6 +161,11 @@ print(f"There are {how_many_cities} ciites in my list")
 
 #-->TODO: Print out the number of friends, or other items from other lists using string literals as above
 
+print(f"I have {len(friends)} friends")
+
+ammo = len(friends)
+print(f"I have a couple {ammo} best friends!")
+
 
 #The len() function is key, especially in conditionals or to simply count how many times to do something.
 
@@ -167,6 +176,10 @@ else:
 
 #-->TODO: Write another if/else statement to check the size of your songs list. If you have 5 of less, add two more songs!
 
+if len(songs) > 4:
+    print("I have over 4 songs in my list")
+else:
+    print("I need more songs!!!")
 
 print("------------------- CHALLENGE 7 -------------------")
 
@@ -182,13 +195,36 @@ print("letter by letter: " + str(word_split_list))
 #using this you can split strings up by any character!
 
 #-->TODO: Change the name of the person who is late in this sentence and print it.
+
 split_me = "I heard Alex was late to class today."
 
+
+# listen = split_me.split(" ") 
+
+# listen.insert(listen.index("Alex"), "Kyle")
+
+# listen.remove("Alex")
+
+listen = split_me.split(" ") 
+listen[listen.index("Alex")] = "Kyle"
+
+print(listen)
 #-->TODO: Add an exclamation mark to this sentence using split() and append(), then print. (yes, there are other ways, but...)
+
 make_me_exciting = "What a wonderful day"
 
+add = make_me_exciting.split(" ")
+add.append("!")
+
+
 #We can also join our list elements into a string using.....join()!
-rejoined = " ".join(boring_list)  #joins it using spaces
-print('back in one piece: ' + rejoined)
+re = " ".join(listen)  #joins it using spaces
+print('back in one piece: ' + re)
 
 #-->TODO:  Finally, put the split_me sentence today and the make_me_exciting strings back together and print. You should see a string
+
+sin = " ".join(add)
+soul = " ".join(listen)
+
+print(sin)
+print(soul)
