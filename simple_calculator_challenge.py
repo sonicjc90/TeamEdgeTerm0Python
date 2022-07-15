@@ -28,7 +28,11 @@ print("My Simple Calculator")
 # -------------------------------------------- 
 
 # Write a function called add_numbers that will take two numbers and return the sum.
+check_answers(add_numbers(5, 15), 20)
 
+def add_numbers(a,b):
+	addition = a+b
+	return addition
 
 
 
@@ -37,8 +41,9 @@ print("My Simple Calculator")
 
 # Write a function called sub_numbers that will take two numbers and return the difference.
 
-
-
+def sub_numbers(c,d):
+	subtraction = c-d
+	return subtraction
 
 
 # ------------
@@ -68,14 +73,18 @@ print("My Simple Calculator")
 
 # Write a function called multiply_numbers that will take two numbers and return the product.
 
-
+def multiply_numbers(e,f):
+	multi = e*f
+	return multi
 
 
 
 
 # Write a function called divide_numbers that will take two numbers and return the quotient.
 
-
+def divide_numbers(g,h):
+	divide = g/h
+	return divide
 
 
 
