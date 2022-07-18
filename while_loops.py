@@ -17,6 +17,7 @@
  # ***************************************************************/
 
 print("------------------- CHALLENGE 1 : IN YOUR PRIME -------------------")
+import random
 
 #Here is a humble while loop in action. We need a variable to hold the counter value.
 num = 0
@@ -41,7 +42,11 @@ def test_prime(n):
     return True
 
 #-->TODO: Declare a while loop that prints all the prime numbers between 0 and 100, use test_prime() helper function
-
+n = 0
+while n <= 100:
+  if test_prime(n):
+    print("The prime numbers from 0 - 100 are: " + str(n))
+  n += 1
 
 
 print("------------------- CHALLENGE 2 : FOUND   -------------------")
@@ -51,7 +56,12 @@ items = ["pencil" , "eraser" , "mirror" , "comb" , "spoon" , "key" , "earrings" 
 
 #-->TODO: Use a while loop to search the contents of a list for the key! If it exists, print "found the key!"
 
-
+search = 0
+while search < len(items):
+    print(items[search])
+    search += 1
+print("I FOUND THE KEY!")
+  
 
 print("------------------- CHALLENGE 3 : BUGGIN   -------------------")
 
@@ -61,9 +71,10 @@ print("------------------- CHALLENGE 3 : BUGGIN   -------------------")
 #-->TODO: Make me count  2, 4, 6,..., 50
 
 def even_numbers_to_fifty():
-    num = 50
-    while num < 50:
+    num = 0
+    while num <= 50:
         print("number: " + str(num))
+        num += 2
 
 even_numbers_to_fifty()
 
@@ -92,6 +103,10 @@ def pattern():
         my_list.append(index)
         print(my_list)
         index += 1
+    while index >= 1:
+      my_list.pop() 
+      print(my_list)
+      index -= 1
 
 pattern()
 
@@ -100,12 +115,26 @@ print("------------------- CHALLENGE 4 : MATH QUIZ   -------------------")
 
 
 
-#-->TODO: Make a Math Quiz that asks two random numbers (between 0 and 100 to make it easy).
+#-->TODO: Make a Math Quiz that adds two random numbers (between 0 and 100 to make it easy).
 #         The user enters the answer. If wrong, keep prompting. If correct, say congrats!!
 #         Use this handy boolean to get you started! You will need input()!
 
 is_correct = False
+add = random.randint(0, 101)
+add2 = random.randint(0, 101)
 
+ans = add + add2
+happy = []
+
+happy.append(ans)
+print(happy)
+
+while not is_correct:
+  quest = int(input("What number am I thinking of? --> "))
+  if quest in happy:
+    print("Congrats!!!")
+  else:
+    print("Nope. Try Again!")
 
 print("------------------- CHALLENGE 5 : WHAT AM I?   -------------------")
 
