@@ -26,6 +26,8 @@ for x in range(11):
 
 #-->TODO: Write a loop that prints a happy birthday message for every year you have been alive.
 
+for x in range(1, 16):
+    print("Happy birthday! You've been alive for... " + str(x) + "years!")
 
 
 print("------------------- CHALLENGE 2 : ITERATOR ----------------------")
@@ -38,11 +40,12 @@ for x in colors:
     print("The color is: " + x)
 
 #-->TODO: Declare a list with at least 5 animals. You provide the animals.
-animals = []
+animals = ["cheetah","panther","polar bear", "penguin", "panda"]
 
 #-->TODO: Print all the animals in the array with a for loop. 
 
-
+for x in animals:
+    print("My favorite animals are: " + x)
 
 print("------------------- CHALLENGE 3 : EVEN COUNTDOWN ------------------")
 
@@ -58,9 +61,16 @@ else:
 
 #-->TODO: Write a function that counts BACKWARDS from 100 and prints only even numbers
 
+for x in range(100, -1, 2):
+    print(x)
+
 
 #-->TODO: Write a function that counts BACKWARDS from the given random number and prints only odd numbers
-
+def ran():
+    for x in range(random, 0, -1):
+        if x % 2 != 0:
+            print(x)
+ran()
 
 print("------------------- CHALLENGE 4 : Finder ------------------")
 
@@ -73,15 +83,23 @@ else:
 
 #-->TODO Declare a list of any strings you  want: cities, friends, movies, etc.
 
-
+canvas = ["Sans", "Gaster", "Mettaton", "Papyrus", "Undyne"]
 
 #-->TODO Write function to prompt the user to "Guess" if an element is present in your list. Store their response in a variable. 
 #   --> If their guess is in your list, print CONGRATULATIONS!
+def under():
+    frisk = input("Guess one of my favorite undertale characters -----> ") 
+
+    if frisk in canvas:
+        print('CONGRATULATIONS')
+    else:
+        print("You are incorrect")
+
 
 
 #-->TODO Call your function.
 
-
+under()
 
 print("------------------- CHALLENGE 5 : Nested ------------------")
 
@@ -99,5 +117,13 @@ for color in colors:
 
 #-->TODO Write a function that prints every letter in a sentence that a user enters.
 
+def write():
+    sentence = []
+    w = input("Enter a sentence, any sentence :D -----> ")
+    print(f"{w} has {len(w)} letters!")
 
+    sad = sentence.append(w)
 #-->CHALLENGE: Let the user know which word is the shortest one!
+    for x in w:
+    
+write()
