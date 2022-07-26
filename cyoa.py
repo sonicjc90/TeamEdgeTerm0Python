@@ -1,4 +1,8 @@
 ######################### Welcome: Start of the game ################################
+ans = " "
+travel = []
+active = True
+
 
 def start_game(): 
     well = input("Enter your name here --> ")
@@ -10,12 +14,13 @@ def start_game():
 #Instructions:
 
 def instruct():
-    print("\nHow to play this game:\n")
+    print("\nHow to play this game:")
+    print("-------------------------------------------------\n")
     print("To go to different locations: Type in 'go to' and then type in the location.\n")
     print("To interact with items: Type in 'take' and then type in the item you would like to take. This will add the item to your inventory\n")
+    print("To interact with NPC's, Type in 'interact' and then the name of the Npc .\n")
     print("To exit: Type in 'exit'. This will take you back outside to the beginning.\n")
     print("If you ever get stuck just type in 'help' and all these commands will pop back up.\n")
-
 
 
 
@@ -60,25 +65,19 @@ class Npc:
     def __repr__(self):
         return f"Name: {self.name}\n Desc: {self.desc}"
 
-npc1 = Npc("Jonathan Joestar","Son of George Joestar and your brother.")
+npc1 = Npc("Jonathan Joestar","Son of George Joestar and your brother.\n")
 
+npc2 = Npc("William Zepelli","Current Master of sun breathing technique known as Hamon\n")
 
-npc2 = Npc("William Zepelli","Current Master of sun breathing technique known as Hamon")
+npc3 = Npc("George Joestar", "Father of Jonathan, Dio, and you. Seems to have gotten ill after a while.\n")
 
+npc4 = Npc("Lady Irina", "Love intrest of your brother Jonathan\n")
 
-npc3 = Npc("George Joestar", "Father of Jonathan, Dio, and you. Seems to have gotten ill after a while.")
+npc5 = Npc("Royal Guards","They stand here in order to protect and serve the Joestar family. In other words your family is rich 😝\n")
 
+npc6 = Npc("Speedwagon", "Friend of Zepelli and Jonathan. Greatest Guy you'll ever meet. Also Funny Meme man go brrrrr.\n")
 
-npc4 = Npc("Lady Irina", "Love intrest of your brother Jonathan")
-
-
-npc5 = Npc("Royal Guards","They stand here in order to protect and serve the Joestar family. In other words your family is rich 😝")
-
-
-npc6 = Npc("Speedwagon", "Friend of Zepelli and Jonathan. Greatest Guy you'll ever meet. Also Funny Meme man go brrrrr.")
-
-
-npc7 = Npc("Dio Brando","Your other brother and somewhat friend. He's been really nice to everyone over the past few years. However, this behavior has always seemed strange to you considering how much of a bully he used to be. ")
+npc7 = Npc("Dio Brando","Your other brother and somewhat friend. He's been really nice to everyone over the past few years. However, this behavior has always seemed strange to you considering how much of a bully he used to be.\n ")
 
 
 
@@ -90,21 +89,21 @@ npc7 = Npc("Dio Brando","Your other brother and somewhat friend. He's been reall
 #Locations:
 
 class Location:
-    def __init__(self, name, desc, item, npc):
+    def __init__(self, name, desc, item, npc, next):
         self.name = name
         self.desc = desc
         self.item = item 
         self.npc = npc
-        self.next = []
+        self.next = next
+
     def __repr__(self):
-        return f"{self.name}\n Description:\n {self.desc}\n \nItems: \n - {self.item}\n \n Npc/Npc's: {self.npc} Available locations: \n \n -{self.next}  "
+        return f"{self.name}\n Description:\n {self.desc}\n \nItems: \n - {self.item}\n \nNpc/Npc's: \n- {self.npc} \n \nAvailable locations: \n \n-{self.next}  "
 
-out = Location( "Outside of the Mansion", "You are outside of the Joestar Mansion. You stand there in awe as you feel happy and proud to be apart of such a nice and weathy family.", [item2.name, item3.name, item4.name], [])
-forest = Location("Forest", "Surrounding the Joestar Mansion is the forest. You enter the forest and find two people standing there and they seem to be punching a rock.", [item1.name], [npc1, npc2])
-living = Location("Inside of Mansion/Living Room", "This wonderful mansion covered in a rich red and dark brown holds many items and people within it.", [item9.name, item10.name], [npc5, npc6, npc7])
-bed = Location("Bedroom", "The bedroom of your father George Joestar.", [item5.name], [npc3])
-read = Location("Library", "The kingdom of knowledge. You are surrounded by thousands of bookshelves with tens of thousands of books.", [item6.name, item7.name, item8.name], [npc4])
-
+out = Location( "Outside of the Mansion", "You are outside of the Joestar Mansion. You stand there in awe as you feel happy and proud to be apart of such a nice and weathy family.", [item2.name, item3.name, item4.name], [],"Forest,Inside of Mansion/Living Room")
+forest = Location("Forest", "Surrounding the Joestar Mansion is the forest. You enter the forest and find two people standing there and they seem to be punching a rock.", [], [npc1.name, npc2.name], "Outside of the Mansion")
+bed = Location("Bedroom", "The bedroom of your father George Joestar.", [item5.name], [npc3],"Inside of Mansion/Living Room")
+read = Location("Library", "The kingdom of knowledge. You are surrounded by thousands of bookshelves with tens of thousands of books.", [item6.name, item7.name, item8.name], [npc4.name],"Inside of Mansion/Living Room")
+living = Location("Inside of Mansion/Living Room", "This wonderful mansion covered in a rich red and dark brown holds many items and people within it.", [item9.name, item10.name], [npc5.name, npc6.name, npc7.name], f"{out.name}, {bed.name}, {read.name}")
 
 
 
@@ -114,10 +113,11 @@ read = Location("Library", "The kingdom of knowledge. You are surrounded by thou
 #Player misc:
 
 class Player:
-    def __init__(self, forward, back, health):
+    def __init__(self, forward, back, health, inventory):
         self.forward = True
         self.back = True
         self.health = 100
+        self.inventory
 
 
 
@@ -127,11 +127,6 @@ class Player:
 
 # Controls:
 
-# def movement():
-
-
-
-
 
 
 # ---------------------------------------------
@@ -139,8 +134,10 @@ class Player:
 start_game()
 instruct()
 #Starting Point: 
-
-print("Where would you like to look first?\n")
+def prompt_user():
+    global ans
+    ans=input("Where would you like to go?\n")
+    return ans
 
 print(f"-{out.name}")
 print("________________________")
@@ -148,21 +145,37 @@ print(f"-{forest.name}")
 print("________________________")
 print(f"-{living.name}")
 
-where = input("----> ")
-
 # ---------------------------------------------
 
-#Controls
+#Command Center |3l4ZE
 
-if where == "Outside of the Mansion":
-    print(f"\n{out}")
+
+
+# def transfer():
+#this function can take in a string and store it in an array
+
+ 
 
 # ---------------------------------------------
-
 
 #Game Loop
 
-# while
+while active:
+    
+    prompt_user()
+    if ans == "go to Outside of the Mansion":
+        print(f"\n{out}")
+    elif ans == "go to Forest":
+        print(f"\n{forest}")
+    elif ans == "go to Inside of Mansion" or "go to Living Room" or "go to Inside of Mansion/Living Room":
+        print(f"\n{living}")
+    elif ans == "go to Bedroom":
+        print(f"\n{bed}")
+    elif ans == "go to Library":
+        print(f"\n{read}")
+    else:
+        print(f"Please retype...\n \n{prompt_user()}")
+
 
 # ---------------------------------------------
 
