@@ -1,6 +1,6 @@
 ######################### Welcome: Start of the game ################################
 ans = " "
-travel = []
+inventory = []
 active = True
 
 
@@ -14,7 +14,7 @@ def start_game():
 #Instructions:
 
 def instruct():
-    print("\nHow to play this game:")
+    print("\n----------- How to play this game: -----------")
     print("-------------------------------------------------\n")
     print("To go to different locations: Type in 'go to' and then type in the location.\n")
     print("To interact with items: Type in 'take' and then type in the item you would like to take. This will add the item to your inventory\n")
@@ -113,11 +113,11 @@ living = Location("Inside of Mansion/Living Room", "This wonderful mansion cover
 #Player misc:
 
 class Player:
-    def __init__(self, forward, back, health, inventory):
+    def __init__(self, forward, back, health):
         self.forward = True
         self.back = True
         self.health = 100
-        self.inventory
+        
 
 
 
@@ -135,7 +135,6 @@ start_game()
 instruct()
 #Starting Point: 
 def prompt_user():
-    global ans
     ans=input("Where would you like to go?\n")
     return ans
 
@@ -148,7 +147,98 @@ print(f"-{living.name}")
 # ---------------------------------------------
 
 #Command Center |3l4ZE
+def take(ans):
+    global inventory
+    if ans == "take Sword":
+        inventory.append(item2.name)
+        print(item2)
+    elif ans == "take Furnace":
+        print("You cannot take this item.")
+    elif ans == "take Boxing Glove":
+        inventory.append(item4.name)
+        print(item4)
+    elif ans == "take White Pill":
+        inventory.append(item5.name)
+        print(item5)
+    elif ans == "take Photo of Crusaders":
+        inventory.append(item6.name)
+        print(item6)
+    elif ans == "take Book":
+        inventory.append(item8.name)
+        print(item8)
+    elif ans == "take Strange Arrow":
+        inventory.append(item10.name)
+        print(item10)
 
+def talk(ans):
+    global inventory
+    if ans == "interact Jonathan Joestar":
+        print(npc1)
+        inventory.append(item1)
+    elif ans == "interact William Zepelli":
+        print(npc2)
+    elif ans == "interact George Joestar":
+        print(npc3)
+    elif ans == "interact Lady Irina":
+        print(npc4)
+        inventory.append(item7)
+    elif ans == "interact Royal Guard":
+        print(npc5)
+    elif ans == "interact Speedwagon":
+        print(npc6)
+    elif ans == "interact Dio Brando":
+        print(npc7)
+
+def go(ans):
+    if ans == "go to Outside of the Mansion":
+        print(f"\n{out}")
+    elif ans == "go to Forest":
+        print(f"\n{forest}")
+    elif ans == "go to Inside of Mansion" or ans == "go to Living Room" or ans == "go to Inside of Mansion/Living Room":
+        print(f"\n{living}")
+    elif ans == "go to Bedroom":
+        print(f"\n{bed}")
+    elif ans == "go to Library":
+        print(f"\n{read}")
+    
+def ask(ans):
+    global inventory
+    if ans == "inventory":
+        print(f"Current Items: {inventory}")
+
+def leave(ans):
+    if ans == "exit" or "Exit":
+        print(f"-{out.name}")
+        print("________________________")
+        print(f"-{forest.name}")
+        print("________________________")
+        print(f"-{living.name}")
+
+
+    if ans == "Help" or "help":
+        instruct()
+
+
+class Base:
+    def __init__(self, name, attack):
+        self.name = name
+        self.attack = attack
+        self.damage = damage
+        self.defense = defense
+        self.health = 100
+    def __repr__(self)
+
+
+def fight():
+    global inventory
+
+
+
+
+    if "Hamon"and"Sword"and"Boxing Glove"and"Special Food" in inventory:
+        fight()
+        
+    
 
 
 # def transfer():
@@ -160,22 +250,22 @@ print(f"-{living.name}")
 
 #Game Loop
 
+
 while active:
     
-    prompt_user()
-    if ans == "go to Outside of the Mansion":
-        print(f"\n{out}")
-    elif ans == "go to Forest":
-        print(f"\n{forest}")
-    elif ans == "go to Inside of Mansion" or "go to Living Room" or "go to Inside of Mansion/Living Room":
-        print(f"\n{living}")
-    elif ans == "go to Bedroom":
-        print(f"\n{bed}")
-    elif ans == "go to Library":
-        print(f"\n{read}")
-    else:
-        print(f"Please retype...\n \n{prompt_user()}")
+    ans = prompt_user()
+    take(ans)
+    talk(ans)
+    go(ans)
+    ask(ans)
+    
+
+    
+
 
 
 # ---------------------------------------------
+
+
+
 
