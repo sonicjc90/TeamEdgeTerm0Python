@@ -166,6 +166,8 @@ def take(ans):
     elif ans == "take Book":
         inventory.append(item8.name)
         print(item8)
+    elif ans == "take Stone Mask":
+        print("Not yet.")
     elif ans == "take Strange Arrow":
         inventory.append(item10.name)
         print(item10)
@@ -174,20 +176,21 @@ def talk(ans):
     global inventory
     if ans == "interact Jonathan Joestar":
         print(npc1)
-        inventory.append(item1)
     elif ans == "interact William Zepelli":
         print(npc2)
+        print(f"Congrats you have obtained: \n {item1}")
+        inventory.append(item1.name)
     elif ans == "interact George Joestar":
         print(npc3)
     elif ans == "interact Lady Irina":
         print(npc4)
-        inventory.append(item7)
+        inventory.append(item7.name)
     elif ans == "interact Royal Guard":
         print(npc5)
     elif ans == "interact Speedwagon":
         print(npc6)
     elif ans == "interact Dio Brando":
-        print(npc7)
+        print(np7)
 
 def go(ans):
     if ans == "go to Outside of the Mansion":
@@ -219,24 +222,44 @@ def leave(ans):
         instruct()
 
 
-class Base:
-    def __init__(self, name, attack):
-        self.name = name
-        self.attack = attack
-        self.damage = damage
-        self.defense = defense
-        self.health = 100
-    def __repr__(self)
+# class Base:
+#     def __init__(self, name, attack):
+#         self.name = name
+#         self.attack = attack
+#         self.damage = damage
+#         self.defense = defense
+#         self.health = 100
+    # def __repr__(self):
 
 
-def fight():
+def end(ans):
     global inventory
+    global active
 
 
 
+    
+    if       (    (      ("Hamon"and"Sword")and("Boxing Glove"and"Special Food")  )   and  "White Pill") in inventory:
+        print("The special item has been unlocked.")
+        if ans == "take Stone Mask":
+            print(item9)
+            inventory.append(item9.name)
+            cool = input("You have successfully found these items. You give these items to Jonathan and he has concluded that Dio has been giving George Joestar... --->")
+            if cool == "poison" or cool == "Poison":
+                ha = input("\n This upsets Jonathan. Jonathan then asks you if you would like to fight Dio with him. (Yes or No?)")
 
-    if "Hamon"and"Sword"and"Boxing Glove"and"Special Food" in inventory:
-        fight()
+                if ha == "Yes" or ha == "yes":
+                    print("You have decided to take Dio down. Before you fight Dio however, he uses the stone mask you grabbed and turns himself into a vampire. He is a little but stronger than before. To be continued...")
+                    active = False
+                elif ha == "No" or ha == "no":
+                    print("You have decided to not help Jonathan and in turn, you find yourself watching as a new and improved vampire Dio slaughters everyone. Congrats you are now left with tons of guilt and are scarred for life 😁👍") 
+                    active = False
+
+            else:
+                print(f"Incorrect...try again.\n \n {cool}")
+    else:
+        print("You may not access this item at this time.")
+            
         
     
 
@@ -251,14 +274,14 @@ def fight():
 #Game Loop
 
 
-while active:
+while active==True:
     
     ans = prompt_user()
     take(ans)
     talk(ans)
     go(ans)
     ask(ans)
-    
+    end(ans)
 
     
 
