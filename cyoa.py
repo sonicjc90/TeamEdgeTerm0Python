@@ -20,6 +20,7 @@ def instruct():
     print("To interact with items: Type in 'take' and then type in the item you would like to take. This will add the item to your inventory\n")
     print("To interact with NPC's, Type in 'interact' and then the name of the Npc .\n")
     print("To exit: Type in 'exit'. This will take you back outside to the beginning.\n")
+    print("To exit: Type in 'inventory'. This will show you all the items you obtained.\n")
     print("If you ever get stuck just type in 'help' and all these commands will pop back up.\n")
 
 
@@ -42,8 +43,8 @@ item1 = Item("Hamon","Sun Breathing Technique. Through the use of controlled bre
 item2 = Item("Sword","A very sharp sword. This weapon has the words 'Luck' inscribed on the side of it.")
 item3 = Item("Furnace","Just a regular furnace... However keep your dog 'Danny' away from it at ALL COSTS....... Please.")
 item4 = Item("Boxing Gloves","Your average boxing gloves.")
-item5 = Item("White Pill","Your father has been being given these pills by Dio on a relatively daily basis. ")
-item6 = Item("Photo of unknown Crusaders","")
+item5 = Item("White Pill","Your father has been being given these pills by Dio on a relatively daily basis. However, it seems he hasn't been getting much better. Inscribed on the pill it reads p. What could this p stand for?")
+item6 = Item("Photo of Mysterious Crusaders","You find this picture within the confines of the Library. This mysterious photo seems to be pretty cool considering it's in full color. You get a strange feeling that you know these 5 people. At the very bottom of the photo it reads Stand. Good Job on finding this little easter egg.")
 item7 = Item("Special Food","Food given to you by Lady Irina. Smells very good.")
 item8 = Item("Book","This appears to be Dio's Diary.")
 item9 = Item("Stone Mask","Strange artifact that was found by your Father. You sense an ominous aura eminating from it.")
@@ -135,7 +136,7 @@ start_game()
 instruct()
 #Starting Point: 
 def prompt_user():
-    ans=input("Where would you like to go?\n")
+    ans=input("\nWhere would you like to go?\n\n")
     return ans
 
 print(f"-{out.name}")
@@ -154,20 +155,18 @@ def take(ans):
         print(item2)
     elif ans == "take Furnace":
         print("You cannot take this item.")
-    elif ans == "take Boxing Glove":
+    elif ans == "take Boxing Gloves":
         inventory.append(item4.name)
         print(item4)
     elif ans == "take White Pill":
         inventory.append(item5.name)
         print(item5)
-    elif ans == "take Photo of Crusaders":
+    elif ans == "take Photo of Mysterious Crusaders":
         inventory.append(item6.name)
         print(item6)
     elif ans == "take Book":
         inventory.append(item8.name)
         print(item8)
-    elif ans == "take Stone Mask":
-        print("Not yet.")
     elif ans == "take Strange Arrow":
         inventory.append(item10.name)
         print(item10)
@@ -190,7 +189,7 @@ def talk(ans):
     elif ans == "interact Speedwagon":
         print(npc6)
     elif ans == "interact Dio Brando":
-        print(np7)
+        print(npc7)
 
 def go(ans):
     if ans == "go to Outside of the Mansion":
@@ -210,7 +209,7 @@ def ask(ans):
         print(f"Current Items: {inventory}")
 
 def leave(ans):
-    if ans == "exit" or "Exit":
+    if ans == "exit" or ans == "Exit":
         print(f"-{out.name}")
         print("________________________")
         print(f"-{forest.name}")
@@ -218,7 +217,7 @@ def leave(ans):
         print(f"-{living.name}")
 
 
-    if ans == "Help" or "help":
+    if ans == "Help" or ans == "help":
         instruct()
 
 
@@ -239,7 +238,7 @@ def end(ans):
 
 
     
-    if       (    (      ("Hamon"and"Sword")and("Boxing Glove"and"Special Food")  )   and  "White Pill") in inventory:
+    if "Hamon" in inventory and "Sword" in inventory and "Boxing Glove" in inventory and "Special Food" in inventory and  "White Pill" in inventory:
         print("The special item has been unlocked.")
         if ans == "take Stone Mask":
             print(item9)
@@ -254,11 +253,12 @@ def end(ans):
                 elif ha == "No" or ha == "no":
                     print("You have decided to not help Jonathan and in turn, you find yourself watching as a new and improved vampire Dio slaughters everyone. Congrats you are now left with tons of guilt and are scarred for life 😁👍") 
                     active = False
-
             else:
                 print(f"Incorrect...try again.\n \n {cool}")
-    else:
-        print("You may not access this item at this time.")
+        elif ans == "take Stone Mask":
+            print("You may not access this item at this time. You need something...")
+        
+            
             
         
     
@@ -281,6 +281,7 @@ while active==True:
     talk(ans)
     go(ans)
     ask(ans)
+    leave(ans)
     end(ans)
 
     
@@ -288,6 +289,11 @@ while active==True:
 
 
 # ---------------------------------------------
+
+
+
+
+
 
 
 
