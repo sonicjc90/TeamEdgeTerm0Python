@@ -40,10 +40,12 @@ print(dictionary)
 
 ##################################  MY dictionary ########################### #/
 
-
-
-
-
+games = {
+    "name": "Sonic Generations",
+    "release date": 2011,
+    "is_favorite_game": True,
+    "mc": ["Modern Sonic","Classic Sonic","Shadow", "Silver"]
+}
 
 ########################################################################## #/
 
@@ -53,17 +55,20 @@ print("------------------- CHALLENGE 2 : MODIFY   -------------------")
 
 #-->TODO: Print your dictionary you created above
 
+print(f"This is the data of my favorite sonic game: {games}")
 
 #-->TODO: Update the dictionary you just created  by adding new properties and values, including list elements, in this section.
 
+games ["company"] = "Sega"
 
 #-->TODO: Print your dictionary again and observe changes
-
+print(games)
 
 print("------------------- CHALLENGE 3 : MEHTODS   -------------------")
 
 
 #-->TODO: Make a method that will update your dictionary value. It should take in a dictionary and return it modified.
+
 
 
 #-->TODO: Call the method.
@@ -73,3 +78,7 @@ print("------------------- CHALLENGE 3 : MEHTODS   -------------------")
 print("------------------- CHALLENGE 4 : LITERALLY   -------------------")
 
 #-->TODO: Put it all together using a string literal to tell the story of your dictionary!
+
+print(f"Today I would like to talk about one of my favorite games known as... {games['name']}.")
+print(f"This game came out in {games['release date']} and was made by {games['company']}.")
+print(f"A lot of the characters in this game include {games['mc']}")
